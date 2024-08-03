@@ -2,8 +2,7 @@
 
 create namespace
 ```
-c
-
+k create ns dns-ns
 ```
 
 create rs.yaml
