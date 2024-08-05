@@ -35,5 +35,5 @@ kubectl apply -f pod.yaml
 
 ```
 
-Now, wait for pod to get to the running states.
+Now, wait for pod to get to the running state.
 
