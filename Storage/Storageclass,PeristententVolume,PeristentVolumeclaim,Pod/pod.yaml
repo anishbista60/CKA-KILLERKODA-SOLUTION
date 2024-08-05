@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: fast-pod-cka
+spec:
+  containers:
+    - name: nginx
+      image: nginx:latest
+      volumeMounts:
+        - mountPath: /app/data
+          name: fast-storage-volume
+  volumes:
+    - name: fast-storage-volume
+      persistentVolumeClaim:
+        claimName: fast-pvc-cka
