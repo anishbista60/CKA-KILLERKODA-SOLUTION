@@ -1,39 +1,34 @@
-## Run the below command
-
-Check the pod
-```
-kubectl describe pod frontend
+## Run the command to check the issue with the pod
 
 ```
-This is the issue whcih says that nodeAffinity did not match
-![alt text](image.png)
-
-Check the node labels
+k describe pod <pod_name>
 ```
-kubectl get nodes --show-labels
+## Issue is Pod is unable to find the ConfigMap
 
-```
+![alt text](a.png)
 
+## 
 ```
-kubectl get pods frontend -oyaml > pod.yaml
+k edit deployment nginx-deployment
 ```
 
-NodeName=frontendnodes is the real one but in pod it is only mentioned frontend
-So change the nodeAffinity values to frontendnodes.
+# change your manifest with below fields 
 
-![alt text](image-1.png)
-
-Delete the running pod
+### first 
 ```
-kubectl delete pod frontend
-
-```
-
-Apply pod.yaml
-```
-kubectl apply -f pod.yaml
-
+      initContainers:
+      - command:
+        - sh
+        - -c
+        - echo 'Welcome To KillerCoda!'
 ```
 
-Now, wait for pod to get to the running state.
+### second 
 
+```
+volumes:
+- configMap:
+    defaultMode: 420
+    name: nginx-configmap
+  name: nginx-config
+```
