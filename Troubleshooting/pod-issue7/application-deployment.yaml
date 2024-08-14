@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: redis-pod
+spec:
+  tolerations:
+  - key: "nodeName"
+    operator: "Equal"
+    value: "workerNode01"
+    effect: "NoSchedule"
+  containers:
+    - name: redis-container
+      image: redis:latest
+      ports:
+        - containerPort: 6379
