@@ -21,7 +21,8 @@ Check the manifest.
 vi /etc/kubernetes/manifests/kube-apiserver.yaml 
 ```
 
-Port for porbes is defined as 6433 but should be 6443.
+Port for probes is defined as 6433 but should be 6443.
+Same as above for LivenessProbe and Readliness Probe. Please change it to 6443. 
 
 Change it.
 
