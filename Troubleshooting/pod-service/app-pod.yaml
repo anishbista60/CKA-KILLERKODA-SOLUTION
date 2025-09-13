@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: app-pod
+  labels:
+    app: app-lab
+spec:
+  containers:
+  - name: app-container
+    image: httpd:latest
+    ports:
+    - containerPort: 80
